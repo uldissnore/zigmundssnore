@@ -8,6 +8,7 @@ document.querySelectorAll('.art-piece img').forEach((image) => {
         // Add the image inside the lightbox
         const img = document.createElement('img');
         img.src = image.src;
+        img.alt = image.alt || 'Art Piece'; // Adding alt text for better accessibility
         lightbox.appendChild(img);
 
         // Add a close button to the lightbox
@@ -34,18 +35,20 @@ document.querySelectorAll('.art-piece img').forEach((image) => {
 
 // Scroll-to-top functionality
 const scrollTopButton = document.createElement('button');
-scrollTopButton.textContent = '↑';
+scrollTopButton.textContent = '↑'; // Use Unicode arrow for a simple up button
 scrollTopButton.classList.add('scroll-top-btn');
 document.body.appendChild(scrollTopButton);
 
+// Show/hide the scroll-to-top button based on scroll position
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 200) {
+    if (window.scrollY > 200) { // Show button after scrolling 200px down
         scrollTopButton.style.display = 'block';
     } else {
         scrollTopButton.style.display = 'none';
     }
 });
 
+// Smooth scroll back to top when button is clicked
 scrollTopButton.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
