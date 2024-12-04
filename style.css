@@ -3,8 +3,17 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    background-color: #f9f9f9; /* You can change this to any color or image */
     color: #333;
+    display: flex;
+    justify-content: center; /* Horizontally center content */
+    align-items: center; /* Vertically center content */
+    height: 100vh; /* Use full viewport height */
+    text-align: center; /* Center text inside body */
+    background-image: url('your-image-url.jpg'); /* Add your background image here */
+    background-size: cover; /* Make sure the image covers the entire background */
+    background-position: center center; /* Center the background image */
+    background-attachment: fixed; /* Keep the background fixed when scrolling */
 }
 
 /* Header Styles */
@@ -126,11 +135,59 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .gallery {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    body {
+        height: auto; /* Allow body to grow with content */
+        padding: 20px; /* Add padding for better spacing */
     }
 
     header h1 {
         font-size: 1.8rem;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* More compact grid for smaller screens */
+    }
+
+    .art-piece p {
+        font-size: 1rem; /* Slightly smaller text in the art pieces */
+    }
+
+    footer {
+        padding: 1rem;
+        font-size: 0.9rem; /* Smaller footer text */
+    }
+
+    .scroll-top-btn {
+        bottom: 10px; /* Adjust for smaller screens */
+        right: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* For very small screens (phones) */
+    body {
+        text-align: left; /* Align text to the left for smaller devices */
+        padding: 10px; /* Less padding */
+    }
+
+    header {
+        padding: 1rem;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr; /* Display items in a single column */
+    }
+
+    .art-piece {
+        padding: 0.8rem; /* Smaller padding for art pieces */
+    }
+
+    .scroll-top-btn {
+        font-size: 1.2rem; /* Smaller scroll-to-top button */
+    }
+
+    footer {
+        padding: 1rem;
+        font-size: 0.85rem; /* Smaller text in footer */
     }
 }
