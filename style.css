@@ -27,6 +27,7 @@ header {
 /* Main Section Padding */
 main {
     padding: 2rem;
+    width: 100%; /* Ensure it spans the full width */
 }
 
 /* Section Styles */
@@ -82,6 +83,33 @@ footer {
     color: #fff;
     padding: 1rem 0;
     margin-top: 2rem;
+}
+
+/* WhatsApp Button Styling */
+.whatsapp-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #25D366; /* WhatsApp Green */
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.whatsapp-button:hover {
+    background-color: #128C7E; /* Darker green when hovered */
+}
+
+.whatsapp-button i {
+    margin-right: 10px; /* Space between the icon and text */
 }
 
 /* Lightbox Styles */
