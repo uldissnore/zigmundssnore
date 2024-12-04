@@ -69,7 +69,7 @@ main {
     height: auto;
     border-radius: 8px;
     object-fit: contain;
-    max-height: 250px; /* Restrict max height */
+    max-height: 100px; /* Restrict max height */
 }
 
 .art-piece p {
