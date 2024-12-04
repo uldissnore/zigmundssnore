@@ -3,17 +3,17 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #000000; /* You can change this to any color or image */
+    background-color: #000000; /* Set background color to black */
     color: #333;
     display: flex;
-    justify-content: center; /* Horizontally center content */
-    align-items: center; /* Vertically center content */
-    height: 100vh; /* Use full viewport height */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     text-align: center; /* Center text inside body */
-    background-image: url('your-image-url.jpg'); /* Add your background image here */
-    background-size: cover; /* Make sure the image covers the entire background */
-    background-position: center center; /* Center the background image */
-    background-attachment: fixed; /* Keep the background fixed when scrolling */
+    background-image: url('your-image-url.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
 }
 
 /* Header Styles */
@@ -66,8 +66,17 @@ section {
 .art-piece img {
     max-width: 100%;
     height: auto;
+    max-height: 300px; /* Reduce the maximum height to make images smaller */
     display: block;
     margin-bottom: 0.5rem;
+}
+
+/* Set the images to be low resolution or smaller size */
+.art-piece img {
+    width: 100%;
+    height: auto;
+    max-height: 200px; /* Set max-height to smaller value */
+    object-fit: contain; /* Keep the aspect ratio while resizing */
 }
 
 .art-piece p {
