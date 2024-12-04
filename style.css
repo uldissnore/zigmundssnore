@@ -1,95 +1,81 @@
 /* General Body Styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #000000; /* Black background */
-    color: #ddd; /* Light gray text for better contrast */
+    background-color: #000000; /* Set background color to black */
+    color: #fff; /* White text color for contrast */
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     height: 100vh;
     text-align: center;
+    flex-direction: column;
+    overflow-x: hidden;
     background-image: url('your-image-url.jpg');
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
-    overflow: hidden;
 }
 
 /* Header Styles */
 header {
-    background-color: #222; /* Dark background for the header */
+    background-color: #444;
     color: #fff;
-    padding: 1.5rem 0;
+    padding: 1rem 0;
     text-align: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
 }
 
 /* Main Section Padding */
 main {
     padding: 2rem;
-    width: 100%;
-    max-width: 1200px; /* Limit the width of content */
+    width: 100%; /* Ensure it spans the full width */
 }
 
-/* Section Styles */
-section {
-    margin-bottom: 2rem;
-}
-
-/* About Artist Paragraph */
+/* About Artist Section */
 #about-artist p {
-    line-height: 1.8;
+    line-height: 1.6;
     font-size: 1.1rem;
-    color: #ccc; /* Lighter color for readability */
+    margin-bottom: 1.5rem;
+    color: #ccc; /* Slightly lighter text color */
 }
 
-/* Gallery Grid Layout */
-#gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    justify-content: center; /* Center gallery items */
+/* Gallery Styles */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 1rem;
+    margin-top: 1.5rem;
 }
 
-/* Art Piece Styling */
 .art-piece {
-    background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
-    border-radius: 12px; /* Rounded corners */
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
     overflow: hidden;
     text-align: center;
-    padding: 1.5rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 1rem;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for art pieces */
 }
 
 .art-piece:hover {
-    transform: scale(1.05); /* Slight zoom on hover */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Subtle shadow effect */
+    transform: scale(1.05); /* Slight zoom effect on hover */
 }
 
 .art-piece img {
     max-width: 100%;
     height: auto;
-    max-height: 300px; /* Slightly reduce image height */
-    object-fit: contain; /* Maintain aspect ratio */
+    border-radius: 8px;
+    object-fit: contain;
+    max-height: 250px; /* Restrict max height */
 }
 
 .art-piece p {
-    font-size: 1.3rem;
-    color: #ddd; /* Light text for contrast */
-    margin-top: 0.5rem;
-}
-
-/* Footer Styles */
-footer {
-    text-align: center;
-    background-color: #222;
-    color: #fff;
-    padding: 1.5rem 0;
-    margin-top: 2rem;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+    font-size: 1.2rem;
+    color: #444;
+    margin-top: 1rem;
 }
 
 /* WhatsApp Button Styling */
@@ -99,26 +85,51 @@ footer {
     justify-content: center;
     background-color: #25D366; /* WhatsApp Green */
     color: white;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: bold;
-    padding: 12px 25px;
-    border-radius: 30px; /* More rounded button */
+    padding: 12px 20px;
+    border-radius: 50px;
     text-decoration: none;
     position: fixed;
     bottom: 20px;
     right: 20px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    z-index: 100;
 }
 
 .whatsapp-button:hover {
     background-color: #128C7E; /* Darker green on hover */
-    transform: translateY(-3px); /* Slight raise on hover */
 }
 
 .whatsapp-button i {
-    margin-right: 12px; /* Increased space between icon and text */
-    font-size: 1.6rem; /* Larger icon */
+    margin-right: 10px;
+}
+
+/* Scroll-to-top Button Styling */
+.scroll-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none; /* Initially hidden */
+    opacity: 0; /* Start with 0 opacity for smooth transition */
+    transition: opacity 0.3s ease-in-out;
+    z-index: 200;
+}
+
+.scroll-top-btn.show {
+    opacity: 1;
+}
+
+.scroll-top-btn:hover {
+    background-color: #333;
 }
 
 /* Lightbox Styles */
@@ -138,53 +149,37 @@ footer {
 .lightbox img {
     max-width: 80%;
     max-height: 80%;
-    border-radius: 12px; /* Rounded corners for images */
+    border-radius: 8px;
 }
 
 .close-btn {
     position: absolute;
-    top: 15px;
-    right: 15px;
+    top: 10px;
+    right: 10px;
     font-size: 2rem;
     color: white;
     cursor: pointer;
 }
 
-/* Scroll to Top Button */
-.scroll-top-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
+/* Footer Styles */
+footer {
+    text-align: center;
     background-color: #444;
-    color: white;
-    border: none;
-    padding: 12px 18px;
-    border-radius: 50%;
-    font-size: 1.8rem;
-    cursor: pointer;
-    display: none;
-    z-index: 1000;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-}
-
-.scroll-top-btn:hover {
-    background-color: #333;
-    transform: translateY(-3px);
+    color: #fff;
+    padding: 1rem 0;
+    margin-top: 2rem;
+    width: 100%;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     body {
-        height: auto;
+        height: auto; /* Allow body to grow with content */
         padding: 20px;
     }
 
-    header h1 {
-        font-size: 2rem;
-    }
-
     .gallery {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* More compact grid for smaller screens */
     }
 
     .art-piece p {
@@ -193,39 +188,36 @@ footer {
 
     footer {
         padding: 1rem;
-        font-size: 1rem;
-    }
-
-    .scroll-top-btn {
-        bottom: 10px;
-        right: 10px;
+        font-size: 0.9rem;
     }
 }
 
 @media (max-width: 480px) {
-    body {
-        text-align: left;
-        padding: 10px;
-    }
-
-    header {
-        padding: 1rem;
-    }
-
-    .gallery {
-        grid-template-columns: 1fr;
-    }
-
-    .art-piece {
-        padding: 1rem;
+    .whatsapp-button {
+        font-size: 1rem;
+        padding: 10px 15px;
     }
 
     .scroll-top-btn {
-        font-size: 1.5rem;
+        padding: 12px;
+        font-size: 1.2rem;
+    }
+
+    body {
+        text-align: left; /* Align text to the left for smaller devices */
+        padding: 10px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr; /* Display items in a single column */
+    }
+
+    .art-piece {
+        padding: 0.8rem; /* Smaller padding for art pieces */
     }
 
     footer {
         padding: 1rem;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
     }
 }
