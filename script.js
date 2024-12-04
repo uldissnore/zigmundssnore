@@ -1,6 +1,9 @@
 // Lightbox functionality
 document.querySelectorAll('.art-piece img').forEach((image) => {
     image.addEventListener('click', () => {
+        // Prevent opening a new lightbox if one already exists
+        if (document.querySelector('.lightbox')) return;
+
         // Create the lightbox element
         const lightbox = document.createElement('div');
         lightbox.classList.add('lightbox');
@@ -37,7 +40,11 @@ document.querySelectorAll('.art-piece img').forEach((image) => {
 const scrollTopButton = document.createElement('button');
 scrollTopButton.textContent = '↑'; // Use Unicode arrow for a simple up button
 scrollTopButton.classList.add('scroll-top-btn');
-document.body.appendChild(scrollTopButton);
+
+// Append the button only once to avoid duplicates
+if (!document.querySelector('.scroll-top-btn')) {
+    document.body.appendChild(scrollTopButton);
+}
 
 // Show/hide the scroll-to-top button based on scroll position
 window.addEventListener('scroll', () => {
